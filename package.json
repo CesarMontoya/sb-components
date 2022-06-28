@@ -1,61 +1,95 @@
 {
-  "name": "storybook",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
-  },
-  "scripts": {
-    "start": "start-storybook -p 6006",
-    "build": "build-storybook",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=e45bb0f30434"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.18.5",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/builder-webpack4": "^6.5.9",
-    "@storybook/manager-webpack4": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
-    "babel-loader": "^8.2.5",
-    "chromatic": "^6.6.3",
-    "css-loader": "^6.7.1",
-    "postcss": "^8.4.14"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "storybook@0.1.0"
+	"name": "cm-storybook",
+	"version": "0.1.0",
+	"private": false,
+	"license": "MIT",
+	"typings": "dist/index.d.ts",
+	"main": "dist/index.js",
+	"homepage": "mihome.com.co",
+	"repository": {
+		"url": "https://github.com/CesarMontoya/sb-components",
+		"type": "git"
+	},
+	"peerDependencies": {
+		"react": ">=16",
+		"typescript": ">=4.0.0"
+	},
+	"release": {
+		"branches": [
+			"main"
+		]
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.14.1",
+		"@testing-library/react": "^13.0.0",
+		"@testing-library/user-event": "^13.2.1",
+		"@types/jest": "^27.0.1",
+		"@types/node": "^16.7.13",
+		"@types/react": "^18.0.0",
+		"@types/react-dom": "^18.0.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^4.4.2",
+		"web-vitals": "^2.1.0"
+	},
+	"scripts": {
+		"start": "start-storybook -p 6006",
+		"build": "yarn clean && tsc && yarn copy-files",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook",
+		"chromatic": "npx chromatic --project-token=e45bb0f30434",
+		"clean": "rimraf dist/",
+		"copy-files": "copyfiles -u 1 src/**/*.css dist/"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@babel/core": "^7.18.5",
+		"@storybook/addon-actions": "^6.5.9",
+		"@storybook/addon-essentials": "^6.5.9",
+		"@storybook/addon-interactions": "^6.5.9",
+		"@storybook/addon-links": "^6.5.9",
+		"@storybook/addon-postcss": "^2.0.0",
+		"@storybook/builder-webpack4": "^6.5.9",
+		"@storybook/manager-webpack4": "^6.5.9",
+		"@storybook/react": "^6.5.9",
+		"@storybook/testing-library": "^0.0.13",
+		"babel-loader": "^8.2.5",
+		"chromatic": "^6.6.3",
+		"copyfiles": "^2.4.1",
+		"css-loader": "^6.7.1",
+		"postcss": "^8.4.14",
+		"rimraf": "^3.0.2",
+		"semantic-release": "^19.0.3"
+	},
+	"plugins": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/release-notes-generator",
+		"@semantic-release/changelog",
+		"@semantic-release/github",
+		"@semantic-release/npm",
+		"@semantic-release/git"
+	],
+	"readme": "ERROR: No README data found!",
+	"_id": "storybook@0.1.0"
 }
